@@ -93,39 +93,28 @@ int main()
 //tod0
 void levelOrderTraversal(BSTNode* root)
 {
-    /* add your code here */
-	
-	// int item;
-	// struct _bstnode *left;
-	// struct _bstnode *right;
-	
-	//레벨로 순회하는 코드 작성하면서 노드의 값을 출력 < 반복문으로
-	int value=root->item;
-	//queue.append(root.left)
-	//queue.append(roo.right)
-	// while (Queue)
-	// {
-	// 		temp=queue.pop();
-	// 		null이 아니면
-	//		출력하고 큐에 자식 넣기
-	// }
-	/*
-	typedef struct _QueueNode {
-		BSTNode *data;
-		struct _QueueNode *nextPtr;
-	}QueueNode; // You should not change the definition of QueueNode
-	
-	typedef struct _queue
+
+	if(root==NULL){
+		return;
+	}
+
+	QueueNode *head=NULL;
+	QueueNode *tail=NULL;
+	enqueue(&head,&tail,root);
+
+	while (!isEmpty(head))
 	{
-		QueueNode *head;
-		QueueNode *tail;
-	}Queue; // You should not change the definition of queue
-	
-	*/
+		BSTNode* node=dequeue(&head,&tail);
+		printf("%d ",node->item);
 
-	printf("%d",value);
-	enqueue(0,0,root);
+		if (node->left!=NULL){
+			enqueue(&head,&tail,node->left);
+		}
 
+		if (node->right!=NULL){
+			enqueue(&head,&tail,node->right);
+		}
+	}
 	return;
 }
 

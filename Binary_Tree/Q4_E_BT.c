@@ -104,6 +104,25 @@ int sumOfOddNodes(BTNode *node)
 
 {
     /* add your code here */
+    Stack s={NULL};
+    push(&s, node);
+    int count=1,result=0;
+    while (count){
+        BTNode *tempNode=pop(&s);
+        count--;
+        if(tempNode->item%2==1){
+            result++;
+        }
+        if(tempNode->left!=NULL){
+            push(&s, tempNode->left);
+            count++;
+        }
+        if(tempNode->right!=NULL){
+            push(&s, tempNode->right);
+            count++;
+        }
+    }
+    return result;
 }
 
 //////////////////////////////////////////////////////////////////////////////////

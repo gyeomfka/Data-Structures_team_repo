@@ -88,6 +88,21 @@ int main()
 void RecursiveReverse(ListNode **ptrHead)
 {
 	/* add your code here */
+	//거꾸로
+	//알 수 있는것- 시작점, 끝점
+	//12345-5 1234-5 4 123-5 4 3 12- 5 4 3 2 1-54321
+	if(*ptrHead==NULL) return;
+	ListNode *tempNode=*ptrHead;
+	if(tempNode->next==NULL) return;
+	ListNode *prevNode=tempNode;
+	while(tempNode->next!=NULL){
+		prevNode=tempNode;
+		tempNode=tempNode->next;
+	}
+	prevNode->next=tempNode->next;
+	RecursiveReverse(ptrHead);
+	tempNode->next=*ptrHead;
+	*ptrHead=tempNode;
 }
 
 //////////////////////////////////////////////////////////////////////////////////

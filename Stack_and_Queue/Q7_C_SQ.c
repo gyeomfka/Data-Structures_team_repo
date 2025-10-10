@@ -105,6 +105,34 @@ int main()
 int balanced(char *expression)
 {
 /* add your code here */
+	int i=0;
+	char* match=(char*)calloc(128,sizeof(char));
+	match[')']='(';
+	match['}']='{';
+	match[']']='[';
+	Stack stack={{0,NULL}};
+	while(expression[i] != '\0') {
+		if(expression[i]=='('||expression[i]=='['||expression[i]=='{')
+			push(&stack, expression[i]);
+		else{
+			if(isEmptyStack(&stack)){
+				free(match);
+				return 1;
+			}
+			char temp=match[expression[i]];
+			if(temp!=pop(&stack)){
+				free(match);
+				return 1;
+			}
+		}
+    	i++;
+	}
+	if(!isEmptyStack(&stack)) {
+		free(match);
+		return 1;
+	}
+	free(match);
+	return 0;
 }
 
 ////////////////////////////////////////////////////////////

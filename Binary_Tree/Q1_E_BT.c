@@ -117,6 +117,28 @@ int identical(BTNode *tree1, BTNode *tree2)
 
 {
    /* add your code here */
+    //두 이진트리의 구조가 완전히 같은지 1,0 리턴
+    Stack s={NULL};
+    push(&s, tree1);
+    push(&s, tree2);
+    int count=2;
+    while(count){
+        BTNode *node2=pop(&s);
+        BTNode *node1=pop(&s);
+        count-=2;
+        if(node1->item!=node2->item){
+            return 0;
+        }
+        if(node1->left!=NULL){
+            push(&s,node1->left);
+            push(&s,node2->left);
+        }
+        if(node1->right!=NULL){
+            push(&s,node1->right);
+            push(&s,node2->right);
+        }
+    }
+    return 1;
 }
 
 /////////////////////////////////////////////////////////////////////////////////

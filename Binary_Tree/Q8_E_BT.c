@@ -103,6 +103,21 @@ int main()
 int hasGreatGrandchild(BTNode *node)
 {
 	/* add your code here */
+    //최소 한 명의 증손자를 가진 모든 노드의 값 출력
+    if(node==NULL) return 0;
+
+    int leftHeight=hasGreatGrandchild(node->left);
+    int rightHeight=hasGreatGrandchild(node->right);
+
+    if(leftHeight>=2||rightHeight>=2){
+        printf("%d ", node->item);
+    }
+
+    if(leftHeight>rightHeight){
+        return leftHeight+1;
+    }else{
+        return rightHeight+1;
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////////

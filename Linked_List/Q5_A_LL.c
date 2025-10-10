@@ -103,6 +103,26 @@ int main()
 void frontBackSplitLinkedList(LinkedList *ll, LinkedList *resultFrontList, LinkedList *resultBackList)
 {
 	/* add your code here */
+	//리스트를 앞부분(front)과 뒷부분(back) 두 개의 하위 리스트로 나누는 함수
+	//홀수개면 앞에 하나 더
+	int llSize=ll->size;
+	int idx=0;
+	int frontSize;
+	if(llSize%2==0){
+		frontSize=llSize/2;
+	}else{
+		frontSize=llSize/2+1;
+	}
+	while(idx<frontSize){
+		insertNode(resultFrontList,idx,findNode(ll,idx)->item);
+		idx++;
+	}
+	int backIdx=0;
+	while(idx<llSize){
+		insertNode(resultBackList,backIdx,findNode(ll,idx)->item);
+		idx++;
+		backIdx++;
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

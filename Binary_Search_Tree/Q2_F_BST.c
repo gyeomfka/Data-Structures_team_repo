@@ -88,9 +88,25 @@ int main()
 
 //////////////////////////////////////////////////////////////////////////////////
 
-void inOrderTraversal(BSTNode *root)
+void inOrderTraversal(BSTNode *root)//전위순회
 {
-	 /* add your code here */
+	
+	Stack stack={NULL};
+	BSTNode* node=root;
+
+	while(!isEmpty(&stack)||node!=NULL){
+		//가장 왼쪽 노드로 이동하면서 스택에 넣음
+		while(node!=NULL){//visited
+			push(&stack, node);
+			node=node->left;
+		}
+
+		node=pop(&stack);
+		printf("%d ",node->item);
+		
+		node=node->right;
+	}
+	return;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

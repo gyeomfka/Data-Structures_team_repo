@@ -102,6 +102,27 @@ int countOneChildNodes(BTNode *node)
 
 {
     /* add your code here */
+    Stack s={NULL};
+    push(&s, node);
+    int count=1,result=0;
+    while (count){
+        BTNode *tempNode=pop(&s);
+        count--;
+        int temp=0;
+        if(tempNode->left!=NULL){
+            push(&s, tempNode->left);
+            temp++;
+        }
+        if(tempNode->right!=NULL){
+            push(&s, tempNode->right);
+            temp++;
+        }
+        if(temp==1){
+            result++;
+        }
+        count+=temp;
+    }
+    return result;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
