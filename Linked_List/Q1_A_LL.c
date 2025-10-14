@@ -94,7 +94,7 @@ int insertSortedLL(LinkedList *ll, int item)
 	int idx=0;
 	ListNode *cur;
 	cur = ll->head;
-
+	if(ll==NULL) return -1;
 	while(1){
 		if(cur==NULL){
 			insertNode(ll, idx, item);

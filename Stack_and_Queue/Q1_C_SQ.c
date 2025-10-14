@@ -126,7 +126,7 @@ void createQueueFromLinkedList(LinkedList *ll, Queue *q)
 		enqueue(q,tempNode->item);
 		tempNode=tempNode->next;
 	}
-	q->ll.size=ll->size;
+	// q->ll.size=ll->size;
 }
 
 void removeOddValues(Queue *q)

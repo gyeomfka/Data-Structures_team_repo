@@ -122,7 +122,7 @@ void createStackFromLinkedList(LinkedList *ll, Stack *s)
 		push(s,tempNode->item);
 		tempNode=tempNode->next;
 	}
-	s->ll.size=ll->size;
+	// s->ll.size=ll->size;
 }
 
 void removeEvenValues(Stack *s)

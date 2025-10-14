@@ -107,12 +107,8 @@ void frontBackSplitLinkedList(LinkedList *ll, LinkedList *resultFrontList, Linke
 	//홀수개면 앞에 하나 더
 	int llSize=ll->size;
 	int idx=0;
-	int frontSize;
-	if(llSize%2==0){
-		frontSize=llSize/2;
-	}else{
-		frontSize=llSize/2+1;
-	}
+	int frontSize=(llSize+1)/2;
+	
 	while(idx<frontSize){
 		insertNode(resultFrontList,idx,findNode(ll,idx)->item);
 		idx++;
