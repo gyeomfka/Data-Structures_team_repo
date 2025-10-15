@@ -57,15 +57,15 @@ else if (*expression == ')' && peek(&s) == '(' ||
 ### - pop으로 확인
 ```c
 if ( expression[i] == ')') {
-    if ( pop(&s) != a ) return 1;
+    if ( pop(&s) != '(' ) return 1;
     continue;
 }
 if ( expression[i] == '}') {
-    if ( pop(&s) != b ) return 1;
+    if ( pop(&s) != '{' ) return 1;
     continue;
 }
 if ( expression[i] == ']') {
-    if ( pop(&s) != c ) return 1;
+    if ( pop(&s) != '[' ) return 1;
     continue;
 }
     
