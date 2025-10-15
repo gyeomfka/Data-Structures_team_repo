@@ -1,3 +1,14 @@
+문제->괄호 문자열이 balanced 인지 판단
+수도코드
+
+문자를 하나씩 순회
+	(,{,[면 스택에 push
+	),},]면 스택의 최상단에 맞는 쌍이 있는지 확인 후 pop
+
+스택에 남은게 있으면 not balanced
+
+
+
 ## expression으로 문자를 하나씩 순회하는 방법
 ### - while문에서 expression++ 로 다음 문자로 이동후 *expression 으로 확인
 ```c
