@@ -106,24 +106,20 @@ int balanced(char *expression)
 {
 /* add your code here */
 	int i=0;
-	char match[128];
+	char match[128]={0};
 	match[')']='(';
 	match['}']='{';
 	match[']']='[';
 	Stack stack={{0,NULL}};
-	while(expression[i] != '\0') {
+	for(int i=0;expression[i]!='\0';i++) {
 		if(expression[i]=='('||expression[i]=='['||expression[i]=='{')
 			push(&stack, expression[i]);
 		else{
-			if(isEmptyStack(&stack)){
-				return 1;
-			}
 			char temp=match[expression[i]];
 			if(temp!=pop(&stack)){
 				return 1;
 			}
 		}
-    	i++;
 	}
 	if(!isEmptyStack(&stack)) {
 		return 1;

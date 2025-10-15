@@ -90,9 +90,10 @@ int moveMaxToFront(ListNode **ptrHead)
 {
     /* add your code here */
 	//순회해서 제일 큰 노드 맨 앞으로
-	ListNode *temp= *ptrHead;
-	ListNode *prev, *maxPrev;
-	ListNode *maxNode=temp;
+	ListNode *temp = *ptrHead;
+	ListNode *prev;//temp의 전 노드
+	ListNode *maxNode=temp;//가장 큰 수가 저장되어있는 노드
+	ListNode *maxPrev;//maxNode의 전 노드
 	while(temp!=NULL){
 		if(temp->item>maxNode->item){
 			maxPrev=prev;
